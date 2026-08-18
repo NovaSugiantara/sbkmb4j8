@@ -22,5 +22,9 @@ export function renderCard(candle: Candle): string {
       <p class="card-scent">${scent}</p>
       ${renderRating(candle.rating)}
       ${notes}
+      <div class="card-actions">
+        <button class="btn btn-ghost btn-sm" type="button" data-action="edit-card" data-id="${escapeHtml(candle.id)}">Edit</button>
+        <button class="btn btn-danger btn-sm" type="button" data-action="delete-card" data-id="${escapeHtml(candle.id)}">Hapus</button>
+      </div>
     </li>`;
 }

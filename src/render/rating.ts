@@ -7,12 +7,12 @@ export function renderRating(rating: number): string {
   return `<span class="rating" role="img" aria-label="Rating ${rating} dari 5">${flames}</span>`;
 }
 
-export function renderRatingInput(): string {
+export function renderRatingInput(checked?: number): string {
   const labels = [1, 2, 3, 4, 5]
     .map(
       (v) => `
       <label class="rating-input">
-        <input type="radio" name="rating" value="${v}" />
+        <input type="radio" name="rating" value="${v}"${checked === v ? ' checked' : ''} />
         <span class="rating-flame" aria-hidden="true">${FLAME}</span>
         <span class="visually-hidden">Rating ${v}</span>
       </label>`
