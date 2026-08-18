@@ -12,7 +12,7 @@
   margin-bottom: var(--space-5);
 }
 
-.app-subtitle { color: var(--color-text-muted); margin: 0; }
+.app-subtitle { color: var(--color-text-muted-strong); margin: 0; }
 
 .summary-bar {
   position: sticky;
@@ -42,7 +42,7 @@
 }
 
 .app-footer {
-  color: var(--color-text-muted);
+  color: var(--color-text-muted-strong);
   font-size: var(--text-sm);
   text-align: center;
 }

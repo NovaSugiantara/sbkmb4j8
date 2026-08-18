@@ -13,6 +13,8 @@
   --color-burning: #EA580C;
   --color-finished: #78716C;
   --color-danger: #C2410C; /* muted warm red — danger button, DESIGN_SYSTEM 5 */
+  --color-ink-strong: #2B1609;        /* near-black warm brown: AA text on amber/orange (a11y add-on) */
+  --color-text-muted-strong: #7E5E48; /* AA-safe muted brown on cream backgrounds (a11y add-on) */
 
   /* Typography (2): system-ui stack, scale 12/14/16/20/28 */
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
