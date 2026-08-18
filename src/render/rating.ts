@@ -10,7 +10,7 @@ export function renderRatingInput(checked?: number): string {
     .map(
       (v) => `
       <label class="rating-input">
-        <input type="radio" name="rating" value="${v}"${checked === v ? ' checked' : ''} />
+        <input type="radio" name="rating" value="${v}"${checked === v ? ' checked' : ''}${v === 1 ? ' required' : ''} />
         <svg class="flame" aria-hidden="true"><use href="#i-flame"/></svg>
         <span class="visually-hidden">Rating ${v}</span>
       </label>`

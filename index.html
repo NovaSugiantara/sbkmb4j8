@@ -29,13 +29,13 @@
 
     <main>
       <section class="summary-bar" aria-label="Ringkasan koleksi">
-        <div class="summary-stats" id="summary-stats"></div>
+        <div class="summary-stats" id="summary-stats" aria-live="polite"></div>
       </section>
 
       <section class="collection" aria-labelledby="collection-heading">
         <h2 id="collection-heading" class="section-title">Koleksi</h2>
         <ul class="card-grid" id="candle-grid"></ul>
-        <p class="empty-state" id="empty-state" hidden>Belum ada candle. Tambahkan koleksi pertamamu 🕯️</p>
+        <p class="empty-state" id="empty-state" role="status" hidden>Belum ada candle. Tambahkan koleksi pertamamu 🕯️</p>
       </section>
     </main>
 
