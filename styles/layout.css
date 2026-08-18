@@ -11,9 +11,8 @@
 .app-footer p { margin: 0; }
 .modal { width: min(560px, calc(100% - var(--space-5))); border: 0; padding: 0; border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-hover); }
 .modal[open] { display: block; animation: modal-in 180ms ease-out; }
-.modal::backdrop { background: rgba(58, 38, 24, 0.55); animation: fade-in 180ms ease-out; }
+.modal::backdrop { background: rgba(58, 38, 24, 0.55); }
 @keyframes modal-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } }
-@keyframes fade-in { from { opacity: 0; } }
 .modal-panel { padding: var(--space-5); }
 .modal-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-4); }
 .modal-title { margin: 0; }
