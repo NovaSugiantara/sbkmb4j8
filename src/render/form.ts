@@ -20,7 +20,7 @@ export function renderForm(draft?: CandleDraft): string {
         <input class="input" id="brand" name="brand" type="text" maxlength="60" placeholder="Contoh: Maison Lune" value="${value('brand')}" />
       </div>
       <div class="field">
-        <label class="field-label" for="scentNotes">Scent notes</label>
+        <label class="field-label" for="scentNotes">Aroma</label>
         <input class="input" id="scentNotes" name="scentNotes" type="text" placeholder="Pisahkan dengan koma, contoh: amber, vanilla" value="${value('scentNotes')}" />
       </div>
       <div class="field">
