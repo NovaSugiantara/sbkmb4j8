@@ -1,5 +1,5 @@
 import type { Store } from '../store.js';
-import type { CandleDraft } from '../types.js';
+import type { Candle, CandleDraft } from '../types.js';
 import { addCandle, updateCandle, deleteCandle } from '../candle-service.js';
 import { validateCandle } from '../validate.js';
 import { qs } from './dom.js';
@@ -11,16 +11,17 @@ export function initApp(store: Store): void {
   const summaryEl = qs('#summary-stats');
   const gridEl = qs('#candle-grid');
   const emptyEl = qs('#empty-state');
+  const noticeEl = qs('#save-notice');
   const modal = qs('#candle-modal') as HTMLDialogElement;
   const formSlot = qs('#modal-form');
   const titleEl = qs('#modal-title');
   let editingId: string | null = null;
 
-  const render = (): void => {
-    const candles = store.getCandles();
+  const render = (candles: Candle[], saveOk = true): void => {
     summaryEl.innerHTML = renderSummary(candles);
     gridEl.innerHTML = renderList(candles);
     emptyEl.hidden = candles.length > 0;
+    noticeEl.hidden = saveOk !== false;
   };
 
   const showForm = (draft?: CandleDraft): void => {
@@ -76,5 +77,5 @@ export function initApp(store: Store): void {
   });
 
   store.subscribe(render);
-  render();
+  render(store.getCandles());
 }

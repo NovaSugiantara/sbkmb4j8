@@ -1,7 +1,7 @@
 import type { Candle } from './types.js';
 import { saveCandles } from './storage.js';
 
-type Listener = (candles: Candle[]) => void;
+type Listener = (candles: Candle[], saveOk: boolean) => void;
 
 export interface Store {
   getCandles(): Candle[];
@@ -19,8 +19,8 @@ export function createStore(initial: Candle[]): Store {
     },
     commit: (next) => {
       candles = next;
-      saveCandles(candles);
-      listeners.forEach((fn) => fn(candles));
+      const saveOk = saveCandles(candles);
+      listeners.forEach((fn) => fn(candles, saveOk));
     },
   };
 }

@@ -27,11 +27,13 @@ export function loadCandles(): Candle[] {
   }
 }
 
-export function saveCandles(candles: Candle[]): void {
+export function saveCandles(candles: Candle[]): boolean {
   try {
     localStorage.setItem(KEY, JSON.stringify(candles));
+    return true;
   } catch {
-    // quota / privacy mode: data stays in-memory; console-level warning only (UI toast out of 25KB budget)
+    // quota / privacy mode: data stays in-memory; caller surfaces the notice
     console.warn('Candle log: gagal menyimpan ke localStorage');
+    return false;
   }
 }
