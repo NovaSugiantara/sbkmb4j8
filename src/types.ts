@@ -11,3 +11,12 @@ export interface Candle {
   createdAt: number; // epoch ms
   updatedAt: number;
 }
+
+export interface CandleDraft {
+  name: string;
+  brand: string;
+  scentNotes: string; // comma-separated raw input
+  status: CandleStatus;
+  rating: number;
+  notes: string;
+}
