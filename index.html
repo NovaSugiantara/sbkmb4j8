@@ -14,7 +14,6 @@
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
     <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 2C8 8 6 11 6 14a8 8 0 0 1 12 0c0-3-2-6-6-12Z"/></symbol>
   </svg>
-
   <div class="page">
     <header class="app-header">
       <div class="app-brand">
@@ -26,26 +25,21 @@
       </div>
       <button class="btn btn-primary" type="button" data-action="open-form" aria-haspopup="dialog">+ Tambah Candle</button>
     </header>
-
     <p class="save-notice" id="save-notice" role="alert" hidden>Gagal menyimpan. Perubahan bisa hilang.</p>
-
     <main>
       <section class="summary-bar" aria-label="Ringkasan koleksi">
         <div class="summary-stats" id="summary-stats" aria-live="polite"></div>
       </section>
-
       <section class="collection" aria-labelledby="collection-heading">
         <h2 id="collection-heading" class="section-title">Koleksi</h2>
         <ul class="card-grid" id="candle-grid"></ul>
         <p class="empty-state" id="empty-state" role="status" hidden>Belum ada candle. Tambahkan koleksi pertamamu 🕯️</p>
       </section>
     </main>
-
     <footer class="app-footer">
       <p>Candle Collection Log · koleksi pribadimu, tersimpan di browser.</p>
     </footer>
   </div>
-
   <dialog class="modal" id="candle-modal" aria-labelledby="modal-title">
     <div class="modal-panel">
       <div class="modal-header">

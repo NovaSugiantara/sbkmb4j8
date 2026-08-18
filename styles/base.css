@@ -3,11 +3,9 @@
 *::after {
   box-sizing: border-box;
 }
-
 html {
   -webkit-text-size-adjust: 100%;
 }
-
 body {
   margin: 0;
   background: var(--color-bg);
@@ -16,7 +14,6 @@ body {
   font-size: var(--text-md);
   line-height: 1.55;
 }
-
 h1,
 h2,
 h3 {
@@ -25,20 +22,15 @@ h3 {
   line-height: 1.25;
   margin: 0 0 var(--space-2);
 }
-
 h1 { font-size: var(--text-xl); }
 h2 { font-size: var(--text-lg); }
 h3 { font-size: var(--text-md); }
-
 p { margin: 0 0 var(--space-3); }
-
 a { color: var(--color-primary-dark); }
-
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -50,7 +42,6 @@ a { color: var(--color-primary-dark); }
   overflow: hidden;
   white-space: nowrap;
 }
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

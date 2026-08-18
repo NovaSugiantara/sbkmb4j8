@@ -12,11 +12,11 @@
   --color-unlit: #A8A29E;
   --color-burning: #EA580C;
   --color-finished: #78716C;
-  /* AA-safe add-ons (not in DESIGN_SYSTEM brief) */
+  /* AA add-ons */
   --color-danger: #C2410C;
   --color-ink-strong: #2B1609;
   --color-text-muted-strong: #7E5E48;
-  --color-flame-strong: #B45309; /* filled flame: 5.02:1 on white card, 3.72:1 vs flame-off (AA non-text) */
+  --color-flame-strong: #B45309; /* AA non-text */
 
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --text-xs: 12px;
