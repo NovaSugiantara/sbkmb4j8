@@ -34,10 +34,14 @@ export function updateCandle(store: Store, id: string, draft: CandleDraft): Cand
     updated = { ...toCandle(draft, id, ts), createdAt: c.createdAt };
     return updated;
   });
+  if (!updated) return undefined; // id not found: no commit, no notify, no persist
   store.commit(next);
   return updated;
 }
 
 export function deleteCandle(store: Store, id: string): void {
-  store.commit(store.getCandles().filter((c) => c.id !== id));
+  const current = store.getCandles();
+  const next = current.filter((c) => c.id !== id);
+  if (next.length === current.length) return; // id not found: no-op
+  store.commit(next);
 }
