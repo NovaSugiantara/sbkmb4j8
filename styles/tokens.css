@@ -1,0 +1,49 @@
+:root {
+  /* Color tokens (DESIGN_SYSTEM 1) */
+  --color-bg: #FFF8F0;
+  --color-surface: #FFFFFF;
+  --color-text: #3A2618;
+  --color-text-muted: #8A6F5C;
+  --color-primary: #D97706;
+  --color-primary-dark: #92400E;
+  --color-flame: #F59E0B;
+  --color-flame-off: #E7DCCF;
+  --color-border: #EADFD2;
+  --color-unlit: #A8A29E;
+  --color-burning: #EA580C;
+  --color-finished: #78716C;
+  --color-danger: #C2410C; /* muted warm red — danger button, DESIGN_SYSTEM 5 */
+
+  /* Typography (2): system-ui stack, scale 12/14/16/20/28 */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 28px;
+
+  /* Spacing (3): 4/8/12/16/24/32 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* Radius (3) */
+  --radius-card: 12px;
+  --radius-control: 8px;
+
+  /* Shadows (4) */
+  --shadow-card: 0 2px 8px rgba(146,64,14,.08), 0 1px 2px rgba(146,64,14,.06);
+  --shadow-hover: 0 6px 16px rgba(146,64,14,.14);
+
+  /* Motion (6) */
+  --transition: 150ms ease-out;
+  --transition-slow: 200ms ease-out;
+  --flicker-duration: 1.6s;
+
+  /* Z-index layers */
+  --z-summary: 10;
+  --z-modal: 100;
+}
