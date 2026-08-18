@@ -1,8 +1,6 @@
-const FLAME = '\u{1F525}';
-
 export function renderRating(rating: number): string {
   const flames = Array.from({ length: 5 }, (_, i) =>
-    `<span class="rating-flame${i < rating ? ' is-filled' : ''}" aria-hidden="true">${FLAME}</span>`
+    `<svg class="flame${i < rating ? ' is-filled' : ''}" aria-hidden="true"><use href="#i-flame"/></svg>`
   ).join('');
   return `<span class="rating" role="img" aria-label="Rating ${rating} dari 5">${flames}</span>`;
 }
@@ -13,7 +11,7 @@ export function renderRatingInput(checked?: number): string {
       (v) => `
       <label class="rating-input">
         <input type="radio" name="rating" value="${v}"${checked === v ? ' checked' : ''} />
-        <span class="rating-flame" aria-hidden="true">${FLAME}</span>
+        <svg class="flame" aria-hidden="true"><use href="#i-flame"/></svg>
         <span class="visually-hidden">Rating ${v}</span>
       </label>`
     )

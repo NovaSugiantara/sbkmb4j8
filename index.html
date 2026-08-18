@@ -11,11 +11,18 @@
   <script type="module" src="dist/main.js"></script>
 </head>
 <body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 2C8 8 6 11 6 14a8 8 0 0 1 12 0c0-3-2-6-6-12Z"/></symbol>
+  </svg>
+
   <div class="page">
     <header class="app-header">
-      <div>
-        <h1 class="app-title">Candle Collection Log</h1>
-        <p class="app-subtitle">Catatan koleksi lilin — scent, status, dan kesan.</p>
+      <div class="app-brand">
+        <svg class="logo" aria-hidden="true"><use href="#i-flame"/></svg>
+        <div>
+          <h1 class="app-title">Candle Collection Log</h1>
+          <p class="app-subtitle">Catatan koleksi lilin · aroma, status, dan kesan.</p>
+        </div>
       </div>
       <button class="btn btn-primary" type="button" data-action="open-form" aria-haspopup="dialog">+ Tambah Candle</button>
     </header>
