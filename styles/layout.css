@@ -25,7 +25,7 @@
   flex: none;
   width: 28px;
   height: 28px;
-  color: var(--color-flame);
+  color: var(--color-primary-dark);
 }
 
 .app-subtitle { color: var(--color-text-muted-strong); margin: 0; }
