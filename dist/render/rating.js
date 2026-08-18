@@ -1,0 +1,16 @@
+const FLAME = '\u{1F525}';
+export function renderRating(rating) {
+    const flames = Array.from({ length: 5 }, (_, i) => `<span class="rating-flame${i < rating ? ' is-filled' : ''}" aria-hidden="true">${FLAME}</span>`).join('');
+    return `<span class="rating" role="img" aria-label="Rating ${rating} dari 5">${flames}</span>`;
+}
+export function renderRatingInput() {
+    const labels = [1, 2, 3, 4, 5]
+        .map((v) => `
+      <label class="rating-input">
+        <input type="radio" name="rating" value="${v}" />
+        <span class="rating-flame" aria-hidden="true">${FLAME}</span>
+        <span class="visually-hidden">Rating ${v}</span>
+      </label>`)
+        .join('');
+    return `<fieldset class="rating-group"><legend class="field-label">Rating</legend><div class="rating-input-row">${labels}</div></fieldset>`;
+}
