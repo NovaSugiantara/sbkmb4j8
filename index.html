@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candle Collection Log</title>
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <script type="module" src="dist/main.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="app-header">
+      <div>
+        <h1 class="app-title">Candle Collection Log</h1>
+        <p class="app-subtitle">Catatan koleksi lilin — scent, status, dan kesan.</p>
+      </div>
+      <button class="btn btn-primary" type="button" data-action="open-form" aria-haspopup="dialog">+ Tambah Candle</button>
+    </header>
+
+    <main>
+      <section class="summary-bar" aria-label="Ringkasan koleksi">
+        <div class="summary-stats" id="summary-stats"></div>
+      </section>
+
+      <section class="collection" aria-labelledby="collection-heading">
+        <h2 id="collection-heading" class="section-title">Koleksi</h2>
+        <ul class="card-grid" id="candle-grid"></ul>
+        <p class="empty-state" id="empty-state" hidden>Belum ada candle. Tambahkan koleksi pertamamu 🕯️</p>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Candle Collection Log — koleksi pribadimu, tersimpan di browser.</p>
+    </footer>
+  </div>
+
+  <dialog class="modal" id="candle-modal" aria-labelledby="modal-title">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h2 id="modal-title" class="modal-title">Tambah Candle</h2>
+        <button class="btn btn-icon" type="button" data-action="close-form" aria-label="Tutup">&times;</button>
+      </div>
+      <div id="modal-form"></div>
+    </div>
+  </dialog>
+</body>
+</html>
