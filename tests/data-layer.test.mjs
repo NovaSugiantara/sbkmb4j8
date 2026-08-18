@@ -45,6 +45,32 @@ test('storage: malformed entries filtered, valid kept (FR-9)', () => {
   assert.deepEqual(loadCandles(), [GOOD]);
 });
 
+test('storage/store: save failure returns false and reaches listeners (G-7)', () => {
+  mem.clear();
+  const origSet = localStorage.setItem;
+  localStorage.setItem = () => { throw new Error('quota'); };
+  try {
+    assert.equal(saveCandles([GOOD]), false);
+    const store = createStore([]);
+    let seenOk;
+    let seenLen = -1;
+    store.subscribe((c, ok) => { seenOk = ok; seenLen = c.length; });
+    store.commit([GOOD]);
+    assert.equal(seenOk, false);      // listener learns the save failed
+    assert.equal(seenLen, 1);         // in-memory state still updated
+    assert.equal(store.getCandles().length, 1);
+  } finally {
+    localStorage.setItem = origSet;
+  }
+  // success path
+  assert.equal(saveCandles([GOOD]), true);
+  const store2 = createStore([]);
+  let ok2;
+  store2.subscribe((_c, ok) => { ok2 = ok; });
+  store2.commit([GOOD]);
+  assert.equal(ok2, true);
+});
+
 test('store: commit replaces state, notifies, persists', () => {
   mem.clear();
   const store = createStore([]);
