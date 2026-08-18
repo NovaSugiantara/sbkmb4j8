@@ -9,6 +9,7 @@ const STATUS_LABEL: Record<Candle['status'], string> = {
 };
 
 export function renderCard(candle: Candle): string {
+  const status = candle.status in STATUS_LABEL ? candle.status : 'unlit';
   const brand = candle.brand ? `<span class="card-brand">${escapeHtml(candle.brand)}</span>` : '';
   const notes = candle.notes ? `<p class="card-notes">${escapeHtml(candle.notes)}</p>` : '';
   const scent = candle.scentNotes.map(escapeHtml).join(' · ');
@@ -16,7 +17,7 @@ export function renderCard(candle: Candle): string {
     <li class="card">
       <div class="card-top">
         <h3 class="card-title">${escapeHtml(candle.name)}</h3>
-        <span class="badge badge-${candle.status}">${STATUS_LABEL[candle.status]}</span>
+        <span class="badge badge-${status}">${STATUS_LABEL[status]}</span>
       </div>
       ${brand}
       <p class="card-scent">${scent}</p>
