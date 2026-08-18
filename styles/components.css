@@ -97,7 +97,7 @@
   color: var(--color-flame-off);
 }
 
-.flame.is-filled { color: var(--color-flame); }
+.flame.is-filled { color: var(--color-flame-strong); } /* --color-flame too light (2.15:1) for AA non-text */
 
 .rating-group {
   border: 0;
@@ -129,7 +129,7 @@
   color: var(--color-flame-off);
   opacity: 0.55;
 }
-.rating-input input:checked + .flame { color: var(--color-flame); opacity: 1; }
+.rating-input input:checked + .flame { color: var(--color-flame-strong); opacity: 1; }
 .rating-input input:focus-visible + .flame {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;

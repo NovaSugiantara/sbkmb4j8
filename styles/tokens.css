@@ -12,12 +12,12 @@
   --color-unlit: #A8A29E;
   --color-burning: #EA580C;
   --color-finished: #78716C;
-  /* DESIGN_SYSTEM tokens above; AA-safe add-ons below (a11y, not in the brief) */
+  /* AA-safe add-ons (not in DESIGN_SYSTEM brief) */
   --color-danger: #C2410C;
   --color-ink-strong: #2B1609;
   --color-text-muted-strong: #7E5E48;
+  --color-flame-strong: #B45309; /* filled flame: 5.02:1 on white card, 3.72:1 vs flame-off (AA non-text) */
 
-  /* Typography (2): system-ui stack, scale 12/14/16/20/28 */
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --text-xs: 12px;
   --text-sm: 14px;
@@ -25,7 +25,6 @@
   --text-lg: 20px;
   --text-xl: 28px;
 
-  /* Spacing (3): 4/8/12/16/24/32 */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
