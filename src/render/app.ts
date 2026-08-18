@@ -49,10 +49,13 @@ export function initApp(store: Store): void {
     const draft = collectDraft(e.target as HTMLFormElement);
     const result = validateCandle(draft);
     if (!result.valid) {
-      const errorsEl = formSlot.querySelector<HTMLElement>('#form-errors');
-      if (errorsEl) {
-        errorsEl.hidden = false;
-        errorsEl.textContent = Object.values(result.errors).join(' ');
+      const fields = ['name', 'rating', 'status'] as const;
+      for (const field of fields) {
+        const msg = result.errors[field];
+        const errEl = formSlot.querySelector<HTMLElement>('#' + field + '-error');
+        const input = formSlot.querySelector<HTMLElement>('[name="' + field + '"]');
+        if (errEl) { errEl.hidden = !msg; errEl.textContent = msg ?? ''; }
+        if (input) { if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid'); }
       }
       return;
     }

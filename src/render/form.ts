@@ -10,34 +10,36 @@ export function renderForm(draft?: CandleDraft): string {
     (s) => `<option value="${s}"${d && d.status === s ? ' selected' : ''}>${STATUS_LABEL[s]}</option>`
   ).join('');
   return `
-    <form id="candle-form" novalidate>
-  <div class="field">
-    <label class="field-label" for="name">Nama</label>
-    <input class="input" id="name" name="name" type="text" required maxlength="80" aria-describedby="form-errors" placeholder="Contoh: Amber Noir" value="${value('name')}" />
-  </div>
-  <div class="field">
-    <label class="field-label" for="brand">Brand</label>
-    <input class="input" id="brand" name="brand" type="text" maxlength="60" placeholder="Contoh: Maison Lune" value="${value('brand')}" />
-  </div>
-  <div class="field">
-    <label class="field-label" for="scentNotes">Aroma</label>
-    <input class="input" id="scentNotes" name="scentNotes" type="text" placeholder="Pisahkan dengan koma, contoh: amber, vanilla" value="${value('scentNotes')}" />
-  </div>
-  <div class="field">
-    <label class="field-label" for="status">Status</label>
-    <select class="input" id="status" name="status" aria-describedby="form-errors">${options}</select>
-  </div>
-  ${renderRatingInput(d?.rating)}
-  <div class="field">
-    <label class="field-label" for="notes">Catatan</label>
-    <textarea class="input" id="notes" name="notes" rows="3" placeholder="Contoh: tunneled, wangi vanilla">${value('notes')}</textarea>
-  </div>
-  <p class="form-errors" id="form-errors" role="alert" hidden></p>
-  <div class="form-actions">
-    <button class="btn btn-primary" type="submit">Simpan</button>
-    <button class="btn btn-ghost" type="button" data-action="close-form">Batal</button>
-  </div>
-    </form>`;
+<form id="candle-form" novalidate>
+<div class="field">
+<label class="field-label" for="name">Nama</label>
+<input class="input" id="name" name="name" type="text" required maxlength="80" aria-describedby="name-error" placeholder="Contoh: Amber Noir" value="${value('name')}" />
+<p class="field-error" id="name-error" role="alert" hidden></p>
+</div>
+<div class="field">
+<label class="field-label" for="brand">Brand</label>
+<input class="input" id="brand" name="brand" type="text" maxlength="60" placeholder="Contoh: Maison Lune" value="${value('brand')}" />
+</div>
+<div class="field">
+<label class="field-label" for="scentNotes">Aroma</label>
+<input class="input" id="scentNotes" name="scentNotes" type="text" placeholder="Pisahkan dengan koma, contoh: amber, vanilla" value="${value('scentNotes')}" />
+</div>
+<div class="field">
+<label class="field-label" for="status">Status</label>
+<select class="input" id="status" name="status" aria-describedby="status-error">${options}</select>
+<p class="field-error" id="status-error" role="alert" hidden></p>
+</div>
+${renderRatingInput(d?.rating)}
+<p class="field-error" id="rating-error" role="alert" hidden></p>
+<div class="field">
+<label class="field-label" for="notes">Catatan</label>
+<textarea class="input" id="notes" name="notes" rows="3" placeholder="Contoh: tunneled, wangi vanilla">${value('notes')}</textarea>
+</div>
+<div class="form-actions">
+<button class="btn btn-primary" type="submit">Simpan</button>
+<button class="btn btn-ghost" type="button" data-action="close-form">Batal</button>
+</div>
+</form>`;
 }
 
 export function collectDraft(form: HTMLFormElement): CandleDraft {

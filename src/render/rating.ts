@@ -8,13 +8,12 @@ export function renderRating(rating: number): string {
 export function renderRatingInput(checked?: number): string {
   const labels = [1, 2, 3, 4, 5]
     .map(
-  (v) => `
-  <label class="rating-input">
-    <input type="radio" name="rating" value="${v}"${checked === v ? ' checked' : ''}${v === 1 ? ' required' : ''} />
-    <svg class="flame" aria-hidden="true"><use href="#i-flame"/></svg>
-    <span class="visually-hidden">Rating ${v}</span>
-  </label>`
+      (v) => `
+<label class="rating-input">
+<input type="radio" name="rating" value="${v}"${checked === v ? ' checked' : ''}${v === 1 ? ' required' : ''} aria-label="Rating ${v}" />
+<svg class="flame" aria-hidden="true"><use href="#i-flame"/></svg>
+</label>`
     )
     .join('');
-  return `<fieldset class="rating-group" aria-describedby="form-errors"><legend class="field-label">Rating</legend><div class="rating-input-row">${labels}</div></fieldset>`;
+  return `<fieldset class="rating-group" aria-describedby="rating-error"><legend class="field-label">Rating</legend><div class="rating-input-row">${labels}</div></fieldset>`;
 }
