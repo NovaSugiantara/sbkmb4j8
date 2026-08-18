@@ -1,25 +1,19 @@
+import { CANDLE_STATUSES, STATUS_LABEL } from '../types.js';
 import type { Candle, CandleDraft, CandleStatus } from '../types.js';
 import { escapeHtml } from './dom.js';
 import { renderRatingInput } from './rating.js';
 
-const STATUSES: readonly CandleStatus[] = ['unlit', 'burning', 'finished'];
-const STATUS_LABEL: Record<CandleStatus, string> = {
-  unlit: 'Belum dinyalakan',
-  burning: 'Menyala',
-  finished: 'Habis',
-};
-
 export function renderForm(draft?: CandleDraft): string {
   const d = draft;
   const value = (k: keyof CandleDraft) => (d ? escapeHtml(String(d[k])) : '');
-  const options = STATUSES.map(
+  const options = CANDLE_STATUSES.map(
     (s) => `<option value="${s}"${d && d.status === s ? ' selected' : ''}>${STATUS_LABEL[s]}</option>`
   ).join('');
   return `
     <form id="candle-form" novalidate>
       <div class="field">
         <label class="field-label" for="name">Nama</label>
-        <input class="input" id="name" name="name" type="text" required maxlength="80" placeholder="Contoh: Amber Noir" value="${value('name')}" />
+        <input class="input" id="name" name="name" type="text" required maxlength="80" aria-describedby="form-errors" placeholder="Contoh: Amber Noir" value="${value('name')}" />
       </div>
       <div class="field">
         <label class="field-label" for="brand">Brand</label>
@@ -31,7 +25,7 @@ export function renderForm(draft?: CandleDraft): string {
       </div>
       <div class="field">
         <label class="field-label" for="status">Status</label>
-        <select class="input" id="status" name="status">${options}</select>
+        <select class="input" id="status" name="status" aria-describedby="form-errors">${options}</select>
       </div>
       ${renderRatingInput(d?.rating)}
       <div class="field">

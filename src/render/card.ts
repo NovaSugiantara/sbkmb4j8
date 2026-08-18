@@ -1,18 +1,14 @@
+import { STATUS_LABEL } from '../types.js';
 import type { Candle } from '../types.js';
 import { escapeHtml } from './dom.js';
 import { renderRating } from './rating.js';
-
-const STATUS_LABEL: Record<Candle['status'], string> = {
-  unlit: 'Belum dinyalakan',
-  burning: 'Menyala',
-  finished: 'Habis',
-};
 
 export function renderCard(candle: Candle): string {
   const status = candle.status in STATUS_LABEL ? candle.status : 'unlit';
   const brand = candle.brand ? `<span class="card-brand">${escapeHtml(candle.brand)}</span>` : '';
   const notes = candle.notes ? `<p class="card-notes">${escapeHtml(candle.notes)}</p>` : '';
   const scent = candle.scentNotes.map(escapeHtml).join(' · ');
+  const scentBlock = scent ? `<p class="card-scent">${scent}</p>` : '';
   return `
     <li class="card">
       <div class="card-top">
@@ -20,7 +16,7 @@ export function renderCard(candle: Candle): string {
         <span class="badge badge-${status}">${STATUS_LABEL[status]}</span>
       </div>
       ${brand}
-      <p class="card-scent">${scent}</p>
+      ${scentBlock}
       ${renderRating(candle.rating)}
       ${notes}
       <div class="card-actions">

@@ -34,6 +34,10 @@ export function initApp(store: Store): void {
     showForm();
   });
 
+  modal.addEventListener('close', () => {
+    editingId = null;
+  });
+
   modal.addEventListener('click', (e) => {
     const el = e.target as HTMLElement;
     if (el.closest('[data-action="close-form"]') || el === modal) modal.close();

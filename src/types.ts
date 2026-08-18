@@ -1,5 +1,13 @@
 export type CandleStatus = 'unlit' | 'burning' | 'finished';
 
+export const CANDLE_STATUSES: readonly CandleStatus[] = ['unlit', 'burning', 'finished'];
+
+export const STATUS_LABEL: Record<CandleStatus, string> = {
+  unlit: 'Belum dinyalakan',
+  burning: 'Menyala',
+  finished: 'Habis',
+};
+
 export interface Candle {
   id: string;
   name: string;

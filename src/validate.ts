@@ -1,6 +1,5 @@
-import type { CandleDraft, CandleStatus } from './types.js';
-
-const STATUSES: readonly CandleStatus[] = ['unlit', 'burning', 'finished'];
+import { CANDLE_STATUSES } from './types.js';
+import type { CandleDraft } from './types.js';
 
 export interface ValidationResult {
   valid: boolean;
@@ -13,6 +12,6 @@ export function validateCandle(draft: CandleDraft): ValidationResult {
   if (!Number.isInteger(draft.rating) || draft.rating < 1 || draft.rating > 5) {
     errors.rating = 'Rating harus angka 1 sampai 5.';
   }
-  if (!STATUSES.includes(draft.status)) errors.status = 'Status tidak valid.';
+  if (!(CANDLE_STATUSES as readonly string[]).includes(draft.status)) errors.status = 'Status tidak valid.';
   return { valid: Object.keys(errors).length === 0, errors };
 }

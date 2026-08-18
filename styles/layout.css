@@ -26,7 +26,10 @@
   background: linear-gradient(135deg, rgba(217,119,6,.12), rgba(245,158,11,.08));
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  backdrop-filter: blur(4px);
+}
+
+@media (prefers-reduced-transparency: no-preference) {
+  .summary-bar { backdrop-filter: blur(4px); }
 }
 
 .collection { margin-bottom: var(--space-6); }
