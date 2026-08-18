@@ -18,5 +18,5 @@ export function renderRatingInput(checked?: number): string {
       </label>`
     )
     .join('');
-  return `<fieldset class="rating-group"><legend class="field-label">Rating</legend><div class="rating-input-row">${labels}</div></fieldset>`;
+  return `<fieldset class="rating-group" aria-describedby="form-errors"><legend class="field-label">Rating</legend><div class="rating-input-row">${labels}</div></fieldset>`;
 }
