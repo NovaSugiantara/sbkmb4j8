@@ -139,6 +139,15 @@ test('validate: status must be valid enum (FR-6)', () => {
   for (const s of ['unlit', 'burning', 'finished']) assert.equal(validateCandle(draft({ status: s })).valid, true, s);
 });
 
+test('validate: errors are keyed per field (name/rating/status)', () => {
+  const all = validateCandle(draft({ name: '', rating: 0, status: 'x' }));
+  assert.equal(all.valid, false);
+  assert.deepEqual(Object.keys(all.errors).sort(), ['name', 'rating', 'status']);
+  const nameOnly = validateCandle(draft({ name: '   ' }));
+  assert.deepEqual(Object.keys(nameOnly.errors), ['name']);
+  assert.equal(nameOnly.valid, false);
+});
+
 test('id: returns unique strings', () => {
   const ids = new Set(Array.from({ length: 100 }, () => createId()));
   assert.equal(ids.size, 100);
